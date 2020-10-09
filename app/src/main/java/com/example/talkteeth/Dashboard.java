@@ -61,7 +61,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         SectionStatePagerAdapter adapter = new SectionStatePagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new Home(),"Home");
         adapter.addFragment(new add_doctor(),"Add Doctor");
-
+        adapter.addFragment(new account_dashboard(),"Accountings");
         viewPager.setAdapter(adapter);
     }
 
@@ -133,11 +133,12 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         Fragment fragment;
- //       FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        //       FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         switch (menuItem.getItemId()){
             case R.id.nav_home :
                 break;
+
             case R.id.add_doctor:
                 fragment = new add_doctor();
                 setViewPager(1);
@@ -145,8 +146,19 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 //                transaction.addToBackStack(null);
 //                transaction.commit();
                 break;
+
+            case R.id.account_dashboard:
+                fragment = new account_dashboard();
+                setViewPager(2);
+//                transaction.replace(R.id.content, fragment);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+                break;
+
         }
         return true;
     }
+
+
 
 }
